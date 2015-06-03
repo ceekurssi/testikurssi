@@ -1,0 +1,2 @@
+hidden: false
+valgrind_strategy: fail

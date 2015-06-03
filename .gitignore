@@ -1,0 +1,13 @@
+**/src/main
+**/test/test
+**/test/mockinput
+**/test/mockoutput
+**/test/tmc_available_points.txt
+**/test/tmc_test_results.xml
+*~
+.DS_Store
+*.dSYM/
+**/build
+**/dist
+**/nbproject/private
+*/*~
