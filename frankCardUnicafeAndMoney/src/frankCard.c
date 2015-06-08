@@ -44,6 +44,7 @@ int pay(FrankCard* card, Money* amount){
 }
 
 void frankCardFree(FrankCard* card){
+    moneyFree(card->balance);
     free(card);
     return;
 }

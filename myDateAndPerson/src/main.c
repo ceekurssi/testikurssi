@@ -2,8 +2,6 @@
 #include "myDate.h"
 #include "person.h"
 
-//tehtävä kesken (valgrind)
-
 int main() {
     Person* ville = newPerson("Ville", 2, 6, 1999);
     Person* kalle = newPerson("Kalle", 8, 5, 2005);
@@ -16,6 +14,9 @@ int main() {
     } else if (olderThan(ville, kalle) == -1){
         printf("%s is older than %s\n", getName(kalle), getName(ville));
     }
+    
+    personFree(ville);
+    personFree(kalle);
 
     return 0;
 }

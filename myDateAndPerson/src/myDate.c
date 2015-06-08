@@ -50,10 +50,10 @@ int earlier(MyDate* first, MyDate* second){
 }
 
 int differenceInYears(MyDate* first, MyDate* second){
+    MyDate* temp = newMyDate(first->day, first->month, first->year);
     if (earlier(first, second) == 0){
         return 0;
     } else if (earlier(first, second) == -1){
-        MyDate* temp = newMyDate(first->day, first->month, first->year);
         first = second;
         second = temp;
     }
@@ -61,6 +61,7 @@ int differenceInYears(MyDate* first, MyDate* second){
     if (first->month > second->month || (first->month == second->month && first->day > second->day)){
         difference -= 1;
     }
+    myDateFree(temp);
     return difference;
 }
 

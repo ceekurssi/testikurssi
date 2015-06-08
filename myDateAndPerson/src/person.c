@@ -27,7 +27,9 @@ int age(Person* person){
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
     MyDate* today = newMyDate(tm.tm_mday, tm.tm_mon +1, tm.tm_year + 1900);
-    return differenceInYears(person->birthday, today);
+    int difference = differenceInYears(person->birthday, today);
+    myDateFree(today);
+    return difference;
 }
 
 int olderThan(Person* first, Person* second){
@@ -35,6 +37,7 @@ int olderThan(Person* first, Person* second){
 }
 
 void personFree(Person* person){
+    myDateFree(person->birthday);
     free(person);
     return;
 }
