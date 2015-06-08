@@ -20,5 +20,7 @@ int main() {
     payEconomicalFromCard(unicafeExactum, cardKalle);
     printf("%s: balance is %.2f\n", getCardName(cardKalle), getBalance(cardKalle)); /*Kalle's card: balance is 147.40*/
     printf("%s: balance is %.2f\n", getCashRegisterName(unicafeExactum), getCashInRegister(unicafeExactum)); /*Unicafe Exactum: balance is 1202.00*/
+    frankCardFree(cardKalle);
+    cashRegisterFree(unicafeExactum);
     return 0;
 }

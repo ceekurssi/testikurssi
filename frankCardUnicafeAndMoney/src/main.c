@@ -3,6 +3,8 @@
 #include "cashRegister.h"
 #include "money.h"
 
+//tehtävä kesken (valgrind)
+
 int main() {
     Money* a = newMoney(2, 30);
     Money* b = newMoney(2, 50);
@@ -25,5 +27,10 @@ int main() {
     payEconomicalFromCard(unicafeExactum, cardKalle);
     printf("%s: balance is %d,%02d\n", getCardName(cardKalle), getEuros(getBalance(cardKalle)), getCents(getBalance(cardKalle))); /*Kalle's card: balance is 147.40*/
     printf("%s: balance is %d,%02d\n", getCashRegisterName(unicafeExactum), getEuros(getCashInRegister(unicafeExactum)), getCents(getCashInRegister(unicafeExactum))); /*Unicafe Exactum: balance is 1202.00*/
+    moneyFree(a);
+    moneyFree(b);
+    moneyFree(c);
+    cashRegisterFree(unicafeExactum);
+    frankCardFree(cardKalle);
     return 0;
 }

@@ -43,10 +43,11 @@ int getGourmetSold(CashRegister* cashRegister){
 }
 
 Money* payEconomical(CashRegister* cashRegister, Money* cashGiven){
-    if (less(cashGiven, newMoney(2,60)) != -1){
-        cashRegister->cashInRegister = plus(cashRegister->cashInRegister, newMoney(2, 60));
+    Money* economical = newMoney(2,60);
+    if (less(cashGiven, economical) != -1){
+        cashRegister->cashInRegister = plus(cashRegister->cashInRegister, economical);
         cashRegister->economicalSold += 1;
-        return minus(cashGiven, newMoney(2, 60));
+        return minus(cashGiven, economical);
     } else {
         return cashGiven;
     }
@@ -88,6 +89,7 @@ void loadMoneyToCard(CashRegister* cashRegister, FrankCard* card, Money* amount)
 }
 
 void cashRegisterFree(CashRegister* cashRegister){
+    free(cashRegister->cashInRegister);
     free(cashRegister);
     return;
 }

@@ -12,5 +12,6 @@ int main()
     } else {
         printf("%s is a minor\n", getName(kalle));
     }
+    personFree(kalle);
     return 0;
 }

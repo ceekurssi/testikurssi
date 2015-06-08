@@ -22,5 +22,7 @@ int main()
     payGourmet(cardVille);
     printf("%s: balance is %.2f\n", getName(cardKalle), getBalance(cardKalle)); /*Kalle's card: balance is 145.60*/
     printf("%s: balance is %.2f\n", getName(cardVille), getBalance(cardVille)); /*Ville's card: balance is 3.60*/
+    frankCardFree(cardKalle);
+    frankCardFree(cardVille);
     return 0;
 }
