@@ -1,5 +1,6 @@
 #include <stdlib.h>
 /*BEGIN SOLUTION*/
+/*END SOLUTION*/
 #include "frankCard.h"
 
 struct FrankCard {
@@ -7,7 +8,7 @@ struct FrankCard {
     double balance;
 };
 
-FrankCard* newFrankCard(char* name){
+FrankCard* FrankCard_new(char* name){
     FrankCard* card;
     
     card = malloc(sizeof(FrankCard));
@@ -18,14 +19,14 @@ FrankCard* newFrankCard(char* name){
     card->balance = 0.0;
     return card;
 }
-char* getCardName(FrankCard* card){
+char* FrankCard_getCardName(FrankCard* card){
     return card->name;
 }
-double getBalance(FrankCard* card){
+double FrankCard_getBalance(FrankCard* card){
     return card->balance;
 }
 
-void loadMoney(FrankCard* card, double amount){
+void FrankCard_loadMoney(FrankCard* card, double amount){
     if (amount > 0){
         card->balance += amount;
     }
@@ -34,7 +35,7 @@ void loadMoney(FrankCard* card, double amount){
     }
 }
 
-int pay(FrankCard* card, double amount){
+int FrankCard_pay(FrankCard* card, double amount){
     if (card->balance < amount){
         return 0;
     } else {
@@ -43,8 +44,7 @@ int pay(FrankCard* card, double amount){
     }
 }
 
-void frankCardFree(FrankCard* card){
+void FrankCard_free(FrankCard* card){
     free(card);
     return;
 }
-/*END SOLUTION*/

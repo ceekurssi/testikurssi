@@ -8,7 +8,7 @@ struct FrankCard {
     double balance;
 };
 
-FrankCard* newFrankCard(char* name){
+FrankCard* FrankCard_new(char* name){
     FrankCard* card;
     
     card = malloc(sizeof(FrankCard));
@@ -19,14 +19,14 @@ FrankCard* newFrankCard(char* name){
     card->balance = 0.0;
     return card;
 }
-char* getName(FrankCard* card){
+char* FrankCard_getName(FrankCard* card){
     return card->name;
 }
-double getBalance(FrankCard* card){
+double FrankCard_getBalance(FrankCard* card){
     return card->balance;
 }
 
-void loadMoney(FrankCard* card, double amount){
+void FrankCard_loadMoney(FrankCard* card, double amount){
     if (amount > 0){
         card->balance += amount;
     }
@@ -35,19 +35,19 @@ void loadMoney(FrankCard* card, double amount){
     }
 }
 
-void payEconomical(FrankCard* card){
+void FrankCard_payEconomical(FrankCard* card){
     if (card->balance >= 2.60){
         card->balance -= 2.60;
     }
 }
 
-void payGourmet(FrankCard* card){
+void FrankCard_payGourmet(FrankCard* card){
     if (card->balance >= 4.40){
         card->balance -= 4.40;
     }
 }
 
-void frankCardFree(FrankCard* card){
+void FrankCard_free(FrankCard* card){
     free(card);
     return;
 }

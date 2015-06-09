@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include "cashRegister.h"
 
-struct FrankCard;
-
 struct CashRegister {
     char* name;
     double cashInRegister;
@@ -10,7 +8,7 @@ struct CashRegister {
     int gourmetSold;
 };
 
-CashRegister* newCashRegister(char* name){
+CashRegister* CashRegister_new(char* name){
     CashRegister* cashRegister;
     
     cashRegister = malloc(sizeof(CashRegister));
@@ -26,23 +24,23 @@ CashRegister* newCashRegister(char* name){
     return cashRegister;
 }
 
-char* getCashRegisterName(CashRegister* cashRegister){
+char* CashRegister_getName(CashRegister* cashRegister){
     return cashRegister->name;
 }
 
-double getCashInRegister(CashRegister* cashRegister){
+double CashRegister_getCashInRegister(CashRegister* cashRegister){
     return cashRegister->cashInRegister;
 }
 
-int getEconomicalSold(CashRegister* cashRegister){
+int CashRegister_getEconomicalSold(CashRegister* cashRegister){
     return cashRegister->economicalSold;
 }
 
-int getGourmetSold(CashRegister* cashRegister){
+int CashRegister_getGourmetSold(CashRegister* cashRegister){
     return cashRegister->gourmetSold;
 }
 
-double payEconomical(CashRegister* cashRegister, double cashGiven){
+double CashRegister_payEconomical(CashRegister* cashRegister, double cashGiven){
     if (cashGiven >= 2.60){
         cashRegister->cashInRegister += 2.60;
         cashRegister->economicalSold += 1;
@@ -52,7 +50,7 @@ double payEconomical(CashRegister* cashRegister, double cashGiven){
     }
 }
 
-double payGourmet(CashRegister* cashRegister, double cashGiven){
+double CashRegister_payGourmet(CashRegister* cashRegister, double cashGiven){
     if (cashGiven >= 4.40){
         cashRegister->cashInRegister += 4.40;
         cashRegister->gourmetSold += 1;
@@ -62,9 +60,9 @@ double payGourmet(CashRegister* cashRegister, double cashGiven){
     }
 }
 
-int payEconomicalFromCard(CashRegister* cashRegister, FrankCard* card){
-    if (getBalance(card) >= 2.60){
-        pay(card, 2.60);
+int CashRegister_payEconomicalFromCard(CashRegister* cashRegister, FrankCard* card){
+    if (FrankCard_getBalance(card) >= 2.60){
+        FrankCard_pay(card, 2.60);
         cashRegister->economicalSold += 1;
         return 1;
     } else {
@@ -72,9 +70,9 @@ int payEconomicalFromCard(CashRegister* cashRegister, FrankCard* card){
     }
 }
 
-int payGourmetFromCard(CashRegister* cashRegister, FrankCard* card){
-    if (getBalance(card) >= 4.40){
-        pay(card, 4.40);
+int CashRegister_payGourmetFromCard(CashRegister* cashRegister, FrankCard* card){
+    if (FrankCard_getBalance(card) >= 4.40){
+        FrankCard_pay(card, 4.40);
         cashRegister->gourmetSold += 1;
         return 1;
     } else {
@@ -82,12 +80,12 @@ int payGourmetFromCard(CashRegister* cashRegister, FrankCard* card){
     }
 }
 
-void loadMoneyToCard(CashRegister* cashRegister, FrankCard* card, double amount){
-    loadMoney(card, amount);
+void CashRegister_loadMoneyToCard(CashRegister* cashRegister, FrankCard* card, double amount){
+    FrankCard_loadMoney(card, amount);
     cashRegister->cashInRegister += amount;
 }
 
-void cashRegisterFree(CashRegister* cashRegister){
+void CashRegister_free(CashRegister* cashRegister){
     free(cashRegister);
     return;
 }

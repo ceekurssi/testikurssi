@@ -7,7 +7,7 @@ struct Person {
     MyDate* birthday;
 };
 
-Person* newPerson(char* name, int day, int month, int year){
+Person* Person_new(char* name, int day, int month, int year){
     Person* person;
     
     person = malloc(sizeof(Person));
@@ -15,35 +15,35 @@ Person* newPerson(char* name, int day, int month, int year){
         return NULL;
     }
     person->name = name;
-    person->birthday = newMyDate(day, month, year);
+    person->birthday = MyDate_new(day, month, year);
     return person;
 }
 
-char* getName(Person* person){
+char* Person_getName(Person* person){
     return person->name;
 }
 
-int age(Person* person){
+int Person_age(Person* person){
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
-    MyDate* today = newMyDate(tm.tm_mday, tm.tm_mon +1, tm.tm_year + 1900);
-    int difference = differenceInYears(person->birthday, today);
-    myDateFree(today);
+    MyDate* today = MyDate_new(tm.tm_mday, tm.tm_mon +1, tm.tm_year + 1900);
+    int difference = MyDate_differenceInYears(person->birthday, today);
+    MyDate_free(today);
     return difference;
 }
 
-int olderThan(Person* first, Person* second){
-    return earlier(first->birthday, second->birthday);
+int Person_olderThan(Person* first, Person* second){
+    return MyDate_earlier(first->birthday, second->birthday);
 }
 
-void personFree(Person* person){
-    myDateFree(person->birthday);
+void Person_free(Person* person){
+    MyDate_free(person->birthday);
     free(person);
     return;
 }
 
-int isAdult(Person* person){
-    if (age(person) < 18){
+int Person_isAdult(Person* person){
+    if (Person_age(person) < 18){
         return 0;
     } else {
         return 1;

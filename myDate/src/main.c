@@ -2,16 +2,16 @@
 #include "myDate.h"
 
 int main() {
-    MyDate* date = newMyDate(22, 3, 2017);
-    MyDate* newDate = afterNumberOfDays(date, 7);
-    printf("Date after a week is %d.%d.%d\n", getDay(newDate), getMonth(newDate), getYear(newDate));
-    printf("Today's date is %d.%d.%d\n", getDay(date), getMonth(date), getYear(date));
-    MyDate* secondDate = afterNumberOfDays(date, 693);
-    printf("The date after 690 days is %d.%d.%d\n", getDay(secondDate), getMonth(secondDate), getYear(secondDate));
-    printf("Difference between date and second date in years: %d\n", differenceInYears(secondDate, date));
+    MyDate* date = MyDate_new(22, 3, 2017);
+    MyDate* newDate = MyDate_afterNumberOfDays(date, 7);
+    printf("Date after a week is %d.%d.%d\n", MyDate_getDay(newDate), MyDate_getMonth(newDate), MyDate_getYear(newDate));
+    printf("Today's date is %d.%d.%d\n", MyDate_getDay(date), MyDate_getMonth(date), MyDate_getYear(date));
+    MyDate* secondDate = MyDate_afterNumberOfDays(date, 693);
+    printf("The date after 690 days is %d.%d.%d\n", MyDate_getDay(secondDate), MyDate_getMonth(secondDate), MyDate_getYear(secondDate));
+    printf("Difference between date and second date in years: %d\n", MyDate_differenceInYears(secondDate, date));
     
-    myDateFree(date);
-    myDateFree(newDate);
-    myDateFree(secondDate);
+    MyDate_free(date);
+    MyDate_free(newDate);
+    MyDate_free(secondDate);
     return 0;
 }

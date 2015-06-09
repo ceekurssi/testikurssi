@@ -3,20 +3,20 @@
 #include "person.h"
 
 int main() {
-    Person* ville = newPerson("Ville", 2, 6, 1999);
-    Person* kalle = newPerson("Kalle", 8, 5, 2005);
+    Person* ville = Person_new("Ville", 2, 6, 1999);
+    Person* kalle = Person_new("Kalle", 8, 5, 2005);
     
-    printf("%s is %d years old\n", getName(ville), age(ville));
-    printf("%s is %d years old\n", getName(kalle), age(kalle));
+    printf("%s is %d years old\n", Person_getName(ville), Person_age(ville));
+    printf("%s is %d years old\n", Person_getName(kalle), Person_age(kalle));
     
-    if (olderThan(ville, kalle) == 1){
-        printf("%s is older than %s\n", getName(ville), getName(kalle));
-    } else if (olderThan(ville, kalle) == -1){
-        printf("%s is older than %s\n", getName(kalle), getName(ville));
+    if (Person_olderThan(ville, kalle) == 1){
+        printf("%s is older than %s\n", Person_getName(ville), Person_getName(kalle));
+    } else if (Person_olderThan(ville, kalle) == -1){
+        printf("%s is older than %s\n", Person_getName(kalle), Person_getName(ville));
     }
     
-    personFree(ville);
-    personFree(kalle);
+    Person_free(ville);
+    Person_free(kalle);
 
     return 0;
 }

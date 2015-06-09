@@ -3,13 +3,13 @@
 
 typedef struct MyDate MyDate;
 
-MyDate* newMyDate(int day, int month, int year);
-int getDay(MyDate* date);
-int getMonth(MyDate* date);
-int getYear(MyDate* date);
-int earlier(MyDate* first, MyDate* second);
-int differenceInYears(MyDate* first, MyDate* second);
-void myDateFree(MyDate* date);
+MyDate* MyDate_new(int day, int month, int year);
+int MyDate_getDay(MyDate* date);
+int MyDate_getMonth(MyDate* date);
+int MyDate_getYear(MyDate* date);
+int MyDate_earlier(MyDate* first, MyDate* second);
+int MyDate_differenceInYears(MyDate* first, MyDate* second);
+void MyDate_free(MyDate* date);
 
 #endif	/* MYDATE_H */
 

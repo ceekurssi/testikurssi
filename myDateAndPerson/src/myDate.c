@@ -7,7 +7,7 @@ struct MyDate {
     int year;
 };
 
-MyDate* newMyDate(int day, int month, int year){
+MyDate* MyDate_new(int day, int month, int year){
     MyDate* date;
     
     date = malloc(sizeof(MyDate));
@@ -21,19 +21,19 @@ MyDate* newMyDate(int day, int month, int year){
     return date;
 }
 
-int getDay(MyDate* date){
+int MyDate_getDay(MyDate* date){
     return date->day;
 }
 
-int getMonth(MyDate* date){
+int MyDate_getMonth(MyDate* date){
     return date->month;
 }
 
-int getYear(MyDate* date){
+int MyDate_getYear(MyDate* date){
     return date->year;
 }
 
-int earlier(MyDate* first, MyDate* second){
+int MyDate_earlier(MyDate* first, MyDate* second){
     if (first->year < second->year){
         return 1;
     }
@@ -49,11 +49,11 @@ int earlier(MyDate* first, MyDate* second){
     return -1;
 }
 
-int differenceInYears(MyDate* first, MyDate* second){
-    MyDate* temp = newMyDate(first->day, first->month, first->year);
-    if (earlier(first, second) == 0){
+int MyDate_differenceInYears(MyDate* first, MyDate* second){
+    MyDate* temp = MyDate_new(first->day, first->month, first->year);
+    if (MyDate_earlier(first, second) == 0){
         return 0;
-    } else if (earlier(first, second) == -1){
+    } else if (MyDate_earlier(first, second) == -1){
         first = second;
         second = temp;
     }
@@ -61,11 +61,11 @@ int differenceInYears(MyDate* first, MyDate* second){
     if (first->month > second->month || (first->month == second->month && first->day > second->day)){
         difference -= 1;
     }
-    myDateFree(temp);
+    MyDate_free(temp);
     return difference;
 }
 
-void myDateFree(MyDate* date){
+void MyDate_free(MyDate* date){
     free(date);
     return;
 }

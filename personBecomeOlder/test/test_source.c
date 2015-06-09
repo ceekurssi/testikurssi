@@ -11,22 +11,22 @@
 START_TEST(test_new_person)
 {
     Person* pekka;
-    pekka = newPerson("Pekka", 15);
-    ck_assert_msg(strcmp(getName(pekka), "Pekka") == 0, "Name should be Pekka, but it was %s", getName(pekka));
-    ck_assert_msg(getAge(pekka) == 15, "Age should be 15, but it was %d", getAge(pekka));
-    ck_assert_msg(isAdult(pekka) == 0, "IsAdult doesn't work. Pekka isn't an adult");
+    pekka = Person_new("Pekka", 15);
+    ck_assert_msg(strcmp(Person_getName(pekka), "Pekka") == 0, "Name should be Pekka, but it was %s", Person_getName(pekka));
+    ck_assert_msg(Person_getAge(pekka) == 15, "Age should be 15, but it was %d", Person_getAge(pekka));
+    ck_assert_msg(Person_isAdult(pekka) == 0, "IsAdult doesn't work. Pekka isn't an adult");
     Person* jukka; 
-    jukka = newPerson("Jukka", -50);
+    jukka = Person_new("Jukka", -50);
     ck_assert_msg(jukka == NULL, "You should return NULL when trying to create person with negative age");
-    jukka = newPerson("Jukka", 50);
-    ck_assert_msg(isAdult(jukka) == 1, "Jukka is an adult");
-    becomeOlder(pekka);
-    ck_assert_msg(getAge(pekka) == 16, "BecomeOlder doesn't work. Age should be 16, but it was %d", getAge(pekka));
-    becomeOlder(pekka);
-    becomeOlder(pekka);    
-    ck_assert_msg(isAdult(pekka) == 1, "IsAdult doesn't work. Pekka is an adult");
-    personFree(jukka);
-    personFree(pekka);
+    jukka = Person_new("Jukka", 50);
+    ck_assert_msg(Person_isAdult(jukka) == 1, "Jukka is an adult");
+    Person_becomeOlder(pekka);
+    ck_assert_msg(Person_getAge(pekka) == 16, "BecomeOlder doesn't work. Age should be 16, but it was %d", Person_getAge(pekka));
+    Person_becomeOlder(pekka);
+    Person_becomeOlder(pekka);    
+    ck_assert_msg(Person_isAdult(pekka) == 1, "IsAdult doesn't work. Pekka is an adult");
+    Person_free(jukka);
+    Person_free(pekka);
 }
 END_TEST
 

@@ -7,7 +7,7 @@ struct MyDate {
     int year;
 };
 
-MyDate* newMyDate(int day, int month, int year){
+MyDate* MyDate_new(int day, int month, int year){
     MyDate* date;
     
     date = malloc(sizeof(MyDate));
@@ -21,19 +21,19 @@ MyDate* newMyDate(int day, int month, int year){
     return date;
 }
 
-int getDay(MyDate* date){
+int MyDate_getDay(MyDate* date){
     return date->day;
 }
 
-int getMonth(MyDate* date){
+int MyDate_getMonth(MyDate* date){
     return date->month;
 }
 
-int getYear(MyDate* date){
+int MyDate_getYear(MyDate* date){
     return date->year;
 }
 
-int earlier(MyDate* first, MyDate* second){
+int MyDate_earlier(MyDate* first, MyDate* second){
     if (first->year < second->year){
         return 1;
     }
@@ -49,7 +49,7 @@ int earlier(MyDate* first, MyDate* second){
     return -1;
 }
 
-void advance(MyDate* date){
+void MyDate_advance(MyDate* date){
     if (date->day < 30){
         date->day += 1;
     } else if (date->month < 12){
@@ -62,13 +62,13 @@ void advance(MyDate* date){
     }
 }
 
-void advanceDays(MyDate* date, int days){
+void MyDate_advanceDays(MyDate* date, int days){
     for (int i = 0; i < days; i++){
-        advance(date);
+        MyDate_advance(date);
     }
 }
 
-MyDate* afterNumberOfDays(MyDate* date, int days){
+MyDate* MyDate_afterNumberOfDays(MyDate* date, int days){
     MyDate* newDate;
     
     newDate = malloc(sizeof(MyDate));
@@ -79,15 +79,15 @@ MyDate* afterNumberOfDays(MyDate* date, int days){
     newDate->month = date->month;
     newDate->year = date->year;
     
-    advanceDays(newDate, days);
+    MyDate_advanceDays(newDate, days);
     return newDate;
 }
 
-int differenceInYears(MyDate* first, MyDate* second){
-    MyDate* temp = newMyDate(first->day, first->month, first->year);
-    if (earlier(first, second) == 0){
+int MyDate_differenceInYears(MyDate* first, MyDate* second){
+    MyDate* temp = MyDate_new(first->day, first->month, first->year);
+    if (MyDate_earlier(first, second) == 0){
         return 0;
-    } else if (earlier(first, second) == -1){
+    } else if (MyDate_earlier(first, second) == -1){
         first = second;
         second = temp;
     }
@@ -95,11 +95,11 @@ int differenceInYears(MyDate* first, MyDate* second){
     if (first->month > second->month || (first->month == second->month && first->day > second->day)){
         difference -= 1;
     }
-    myDateFree(temp);
+    MyDate_free(temp);
     return difference;
 }
 
-void myDateFree(MyDate* date){
+void MyDate_free(MyDate* date){
     free(date);
     return;
 }

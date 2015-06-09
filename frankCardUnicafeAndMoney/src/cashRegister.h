@@ -4,17 +4,20 @@
 
 typedef struct CashRegister CashRegister;
 
-CashRegister* newCashRegister(char* name);
-char* getCashRegisterName(CashRegister* cashRegister);
-Money* getCashInRegister(CashRegister* cashRegister);
-int getEconomicalSold(CashRegister* cashRegister);
-int getGourmetSold(CashRegister* cashRegister);
-Money* payEconomical(CashRegister* cashRegister, Money* cashGiven);
-Money* payGourmet(CashRegister* cashRegister, Money* cashGiven);
-int payEconomicalFromCard(CashRegister* cashRegister, FrankCard* card);
-int payGourmetFromCard(CashRegister* cashRegister, FrankCard* card);
-void loadMoneyToCard(CashRegister* cashRegister, FrankCard* card, Money* amount);
-void cashRegisterFree(CashRegister* cashRegister);
+static const Money PRICE_ECONOMICAL = {2, 60};
+static const Money PRICE_GOURMET = {4, 40};
+
+CashRegister* CashRegister_new(char* name);
+char* CashRegister_getCashRegisterName(CashRegister* cashRegister);
+Money CashRegister_getCashInRegister(CashRegister* cashRegister);
+int CashRegister_getEconomicalSold(CashRegister* cashRegister);
+int CashRegister_getGourmetSold(CashRegister* cashRegister);
+Money CashRegister_payEconomical(CashRegister* cashRegister, Money cashGiven);
+Money CashRegister_payGourmet(CashRegister* cashRegister, Money cashGiven);
+int CashRegister_payEconomicalFromCard(CashRegister* cashRegister, FrankCard* card);
+int CashRegister_payGourmetFromCard(CashRegister* cashRegister, FrankCard* card);
+void CashRegister_loadMoneyToCard(CashRegister* cashRegister, FrankCard* card, Money amount);
+void CashRegister_free(CashRegister* cashRegister);
 
 
 #endif	/* CASHREGISTER_H */

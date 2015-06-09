@@ -8,7 +8,7 @@ struct Person {
     int age;
 };
 
-Person* newPerson(char* name, int age){
+Person* Person_new(char* name, int age){
     Person* person = malloc(sizeof(Person));
     if (person == NULL){
         return NULL;
@@ -17,13 +17,13 @@ Person* newPerson(char* name, int age){
     person->age = age;
     return person;
 }
-char* getName(Person* person){
+char* Person_getName(Person* person){
     return person->name;
 }
-int getAge(Person* person){
+int Person_getAge(Person* person){
     return person->age;
 }
-void personFree(Person* person){
+void Person_free(Person* person){
     free(person);
     return;
 }

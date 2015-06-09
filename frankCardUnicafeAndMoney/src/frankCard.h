@@ -4,12 +4,12 @@
 
 typedef struct FrankCard FrankCard;
 
-FrankCard* newFrankCard(char* name);
-char* getCardName(FrankCard* card);
-Money* getBalance(FrankCard* card);
-void loadMoney(FrankCard* card, Money* amount);
-int pay(FrankCard* card, Money* amount);
-void frankCardFree(FrankCard* card);
+FrankCard* FrankCard_new(char* name);
+char* FrankCard_getCardName(FrankCard* card);
+Money FrankCard_getBalance(FrankCard* card);
+void FrankCard_loadMoney(FrankCard* card, Money amount);
+int FrankCard_pay(FrankCard* card, Money amount);
+void FrankCard_free(FrankCard* card);
 
 #endif	/* FRANKCARD_H */
 

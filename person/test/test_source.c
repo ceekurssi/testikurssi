@@ -12,10 +12,10 @@ START_TEST(test_new_person)
 {
     Person* pekka;
     
-    pekka = newPerson("Pekka", 15);
-    ck_assert_msg(strcmp(getName(pekka), "Pekka") == 0, "Name should be Pekka, but it was %s", getName(pekka));
-    ck_assert_msg(getAge(pekka) == 15, "Age should be 15, but it was %d", getAge(pekka));
-    personFree(pekka);
+    pekka = Person_new("Pekka", 15);
+    ck_assert_msg(strcmp(Person_getName(pekka), "Pekka") == 0, "Name should be Pekka, but it was %s", Person_getName(pekka));
+    ck_assert_msg(Person_getAge(pekka) == 15, "Age should be 15, but it was %d", Person_getAge(pekka));
+    Person_free(pekka);
 }
 END_TEST
 

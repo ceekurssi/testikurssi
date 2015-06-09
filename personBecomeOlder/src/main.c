@@ -3,15 +3,15 @@
 
 int main()
 {
-    Person* kalle = newPerson("Kalle", 20);
-    becomeOlder(kalle);
-    printf("My name is %s and I'm %d years old\n", getName(kalle), getAge(kalle));
+    Person* kalle = Person_new("Kalle", 20);
+    Person_becomeOlder(kalle);
+    printf("My name is %s and I'm %d years old\n", Person_getName(kalle), Person_getAge(kalle));
     
-    if (isAdult(kalle)){
-        printf("%s is an adult\n", getName(kalle));
+    if (Person_isAdult(kalle)){
+        printf("%s is an adult\n", Person_getName(kalle));
     } else {
-        printf("%s is a minor\n", getName(kalle));
+        printf("%s is a minor\n", Person_getName(kalle));
     }
-    personFree(kalle);
+    Person_free(kalle);
     return 0;
 }
