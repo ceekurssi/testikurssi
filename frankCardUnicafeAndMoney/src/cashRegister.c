@@ -20,7 +20,7 @@ CashRegister* CashRegister_new(char* name){
     }
     
     cashRegister->name = name;
-    cashRegister->cashInRegister = (Money){0, 0};
+    cashRegister->cashInRegister = (Money){1000, 0};
     cashRegister->economicalSold = 0;
     cashRegister->gourmetSold = 0;
     return cashRegister;
@@ -84,7 +84,7 @@ int CashRegister_payGourmetFromCard(CashRegister* cashRegister, FrankCard* card)
 
 void CashRegister_loadMoneyToCard(CashRegister* cashRegister, FrankCard* card, Money amount){
     FrankCard_loadMoney(card, amount);
-    cashRegister->cashInRegister = money_add(amount, cashRegister->cashInRegister);
+    cashRegister->cashInRegister = money_add(cashRegister->cashInRegister, amount);
 }
 
 void CashRegister_free(CashRegister* cashRegister){
