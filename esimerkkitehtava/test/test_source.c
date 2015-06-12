@@ -10,7 +10,8 @@
 
 START_TEST(test_sum)
 {
-    fail_unless(my_sum_function(1, 2) == 3, "My own sum function should sum 1 and 2 resulting in 3");
+    //fail_unless(my_sum_function(1, 2) == 3, "My own sum function should sum 1 and 2 resulting in 3");
+    ck_assert_msg(my_sum_function(1, 2) == 3, "My own sum function should sum 1 and 2 resulting in 3");
 }
 END_TEST
 
