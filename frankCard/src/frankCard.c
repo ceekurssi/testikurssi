@@ -1,6 +1,4 @@
 #include <stdlib.h>
-/*BEGIN SOLUTION*/
-/*END SOLUTION*/
 #include "frankCard.h"
 
 struct FrankCard {

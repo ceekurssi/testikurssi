@@ -9,4 +9,3 @@ struct boundedCounter {
 struct boundedCounter boundedCounter_next(struct boundedCounter counter);
 
 #endif	/* BOUNDEDCOUNTER_H */
-

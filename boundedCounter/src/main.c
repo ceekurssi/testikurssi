@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include "boundedCounter.h"
 
+/* Good to know: structures, own headers
+ * This exercise is from Object-oriented programming with Java, week 4.
+ * Define a structure boundedCounter. The structure contains two members, integers for value and upperLimit.
+ * Value is the value of the counter and upperLimit is the maximum value of the counter.
+ * Function boundedCounter_next(struct boundedCounter counter) increases the value of the counter and then returns the counter.
+ * If the value would be more than upper limit, the value becomes to zero.*/
+
+
 int main() {
     struct boundedCounter hours = {5, 23};
     struct boundedCounter minutes = {58, 59};

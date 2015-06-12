@@ -1,8 +1,6 @@
 #ifndef MONEY_H
 #define	MONEY_H
 
-//typedef struct Money Money;
-
 typedef struct Money{
     int euros;
     int cents;

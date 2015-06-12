@@ -2,6 +2,8 @@
 #include "myDate.h"
 #include "person.h"
 
+//myDate vois miettiä uudestaan ja muokata sitten tätäkin
+
 int main() {
     Person* ville = Person_new("Ville", 2, 6, 1999);
     Person* kalle = Person_new("Kalle", 8, 5, 2005);

@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include "myDate.h"
 
+//tän vois tehdä vähän järkevämmin
+
+/* Good to know: structures, own headers, allocating and releasing memory, pointers 
+ * This exercise is from Object-oriented programming with Java, week 5.
+ * Define a structure called myDate in myDate.c. myDate contains three members, integers for day, month and year. 
+ * Implement all functions in myDate.c. */
+
 int main() {
     MyDate* date = MyDate_new(22, 3, 2017);
     MyDate* newDate = MyDate_afterNumberOfDays(date, 7);

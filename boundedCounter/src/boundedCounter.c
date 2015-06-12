@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "boundedCounter.h"
 
 struct boundedCounter boundedCounter_next(struct boundedCounter counter){
