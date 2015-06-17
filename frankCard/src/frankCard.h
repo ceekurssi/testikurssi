@@ -3,13 +3,13 @@
 
 typedef struct FrankCard FrankCard;
 
-FrankCard* FrankCard_new(char* name);
-char* FrankCard_getName(FrankCard* card);
-double FrankCard_getBalance(FrankCard* card);
-void FrankCard_loadMoney(FrankCard* card, double amount);
-void FrankCard_payEconomical(FrankCard* card);
-void FrankCard_payGourmet(FrankCard* card);
-void FrankCard_free(FrankCard* card);
+FrankCard* new_FrankCard(char* name);
+char* getName_FrankCard(FrankCard* card);
+double getBalance_FrankCard(FrankCard* card);
+void loadMoney_FrankCard(FrankCard* card, double amount);
+void payEconomical_FrankCard(FrankCard* card);
+void payGourmet_FrankCard(FrankCard* card);
+void free_FrankCard(FrankCard* card);
 
 #endif	/* FRANKCARD_H */
 

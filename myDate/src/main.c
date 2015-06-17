@@ -8,7 +8,7 @@
  * Define a structure called myDate in myDate.c. myDate contains three members, integers for day, month and year. 
  * Implement all functions in myDate.c. */
 
-int main() {
+int main(void) {
     MyDate* date = MyDate_new(22, 3, 2017);
     MyDate* newDate = MyDate_afterNumberOfDays(date, 7);
     printf("Date after a week is %d.%d.%d\n", MyDate_getDay(newDate), MyDate_getMonth(newDate), MyDate_getYear(newDate));

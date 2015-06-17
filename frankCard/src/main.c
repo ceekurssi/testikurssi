@@ -14,28 +14,28 @@
  * If the balance of the card is more than 150 euros, the balance is set to 150 euros.
  * Function FrankCard_free should free all allocated memory. */
 
-int main()
+int main(void)
 {
-    FrankCard* cardKalle = FrankCard_new("Kalle's card");
-    FrankCard* cardVille = FrankCard_new("Ville's card");
-    FrankCard_loadMoney(cardKalle, 20.0);
-    FrankCard_loadMoney(cardVille, 15.0);
-    printf("%s: balance is %.2f\n", FrankCard_getName(cardKalle), FrankCard_getBalance(cardKalle)); /*Kalle's card: balance is 20.00*/
-    printf("%s: balance is %.2f\n", FrankCard_getName(cardVille), FrankCard_getBalance(cardVille)); /*Ville's card: balance is 15.00*/
-    FrankCard_payEconomical(cardKalle);
-    FrankCard_payGourmet(cardVille);
-    printf("%s: balance is %.2f\n", FrankCard_getName(cardKalle), FrankCard_getBalance(cardKalle)); /*Kalle's card: balance is 17.40*/
-    printf("%s: balance is %.2f\n", FrankCard_getName(cardVille), FrankCard_getBalance(cardVille)); /*Ville's card: balance is 10.60*/
-    FrankCard_loadMoney(cardKalle, 200.0);
-    FrankCard_payGourmet(cardVille);
-    FrankCard_payEconomical(cardVille);
-    printf("%s: balance is %.2f\n", FrankCard_getName(cardKalle), FrankCard_getBalance(cardKalle)); /*Kalle's card: balance is 150.00*/
-    printf("%s: balance is %.2f\n", FrankCard_getName(cardVille), FrankCard_getBalance(cardVille)); /*Ville's card: balance is 3.60*/
-    FrankCard_payGourmet(cardKalle);
-    FrankCard_payGourmet(cardVille);
-    printf("%s: balance is %.2f\n", FrankCard_getName(cardKalle), FrankCard_getBalance(cardKalle)); /*Kalle's card: balance is 145.60*/
-    printf("%s: balance is %.2f\n", FrankCard_getName(cardVille), FrankCard_getBalance(cardVille)); /*Ville's card: balance is 3.60*/
-    FrankCard_free(cardKalle);
-    FrankCard_free(cardVille);
+    FrankCard* cardKalle = new_FrankCard("Kalle's card");
+    FrankCard* cardVille = new_FrankCard("Ville's card");
+    loadMoney_FrankCard(cardKalle, 20.0);
+    loadMoney_FrankCard(cardVille, 15.0);
+    printf("%s: balance is %.2f\n", getName_FrankCard(cardKalle), getBalance_FrankCard(cardKalle)); /*Kalle's card: balance is 20.00*/
+    printf("%s: balance is %.2f\n", getName_FrankCard(cardVille), getBalance_FrankCard(cardVille)); /*Ville's card: balance is 15.00*/
+    payEconomical_FrankCard(cardKalle);
+    payGourmet_FrankCard(cardVille);
+    printf("%s: balance is %.2f\n", getName_FrankCard(cardKalle), getBalance_FrankCard(cardKalle)); /*Kalle's card: balance is 17.40*/
+    printf("%s: balance is %.2f\n", getName_FrankCard(cardVille), getBalance_FrankCard(cardVille)); /*Ville's card: balance is 10.60*/
+    loadMoney_FrankCard(cardKalle, 200.0);
+    payGourmet_FrankCard(cardVille);
+    payEconomical_FrankCard(cardVille);
+    printf("%s: balance is %.2f\n", getName_FrankCard(cardKalle), getBalance_FrankCard(cardKalle)); /*Kalle's card: balance is 150.00*/
+    printf("%s: balance is %.2f\n", getName_FrankCard(cardVille), getBalance_FrankCard(cardVille)); /*Ville's card: balance is 3.60*/
+    payGourmet_FrankCard(cardKalle);
+    payGourmet_FrankCard(cardVille);
+    printf("%s: balance is %.2f\n", getName_FrankCard(cardKalle), getBalance_FrankCard(cardKalle)); /*Kalle's card: balance is 145.60*/
+    printf("%s: balance is %.2f\n", getName_FrankCard(cardVille), getBalance_FrankCard(cardVille)); /*Ville's card: balance is 3.60*/
+    free_FrankCard(cardKalle);
+    free_FrankCard(cardVille);
     return 0;
 }

@@ -9,18 +9,18 @@
  * If the value would be more than upper limit, the value becomes to zero.*/
 
 
-int main() {
+int main(void) {
     struct boundedCounter hours = {5, 23};
     struct boundedCounter minutes = {58, 59};
     struct boundedCounter seconds = {50, 59};
     printf("Clock value at start: %02d:%02d:%02d\n", hours.value, minutes.value, seconds.value);
     
     for (int i = 0; i < 100; i++){
-        seconds = boundedCounter_next(seconds);
+        seconds = next_boundedCounter(seconds);
         if (seconds.value == 0){
-            minutes = boundedCounter_next(minutes);
+            minutes = next_boundedCounter(minutes);
             if (minutes.value == 0){
-                hours = boundedCounter_next(hours);
+                hours = next_boundedCounter(hours);
             }
         }
         printf("Clock value: %02d:%02d:%02d\n", hours.value, minutes.value, seconds.value);

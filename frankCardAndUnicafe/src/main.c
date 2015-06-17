@@ -18,25 +18,25 @@
  * Function CashRegister_loadMoneyToCard should load a positive amount of money to the given frankCard and increase the cashInRegister correspondingly.
  * Function CashRegister_free should free all allocated memory.*/
 
-int main() {
-    CashRegister* unicafeExactum = CashRegister_new("Unicafe Exactum");
-    FrankCard* cardKalle = FrankCard_new("Kalle's card");
-    CashRegister_loadMoneyToCard(unicafeExactum, cardKalle, 2.0);
-    printf("%s: balance is %.2f\n", FrankCard_getCardName(cardKalle), FrankCard_getBalance(cardKalle)); /*Kalle's card: balance is 2.00*/
-    printf("%s: balance is %.2f\n", CashRegister_getName(unicafeExactum), CashRegister_getCashInRegister(unicafeExactum)); /*Unicafe Exactum: balance is 1002.00*/
+int main(void) {
+    CashRegister* unicafeExactum = new_CashRegister("Unicafe Exactum");
+    FrankCard* cardKalle = new_FrankCard("Kalle's card");
+    loadMoneyToCard_CashRegister(unicafeExactum, cardKalle, 2.0);
+    printf("%s: balance is %.2f\n", getCardName_FrankCard(cardKalle), getBalance_FrankCard(cardKalle)); /*Kalle's card: balance is 2.00*/
+    printf("%s: balance is %.2f\n", getName_CashRegister(unicafeExactum), getCashInRegister_CashRegister(unicafeExactum)); /*Unicafe Exactum: balance is 1002.00*/
     printf("payment success: ");
-    if (CashRegister_payGourmetFromCard(unicafeExactum, cardKalle)){
+    if (payGourmetFromCard_CashRegister(unicafeExactum, cardKalle)){
         printf("true\n");
     } else {
         printf("false\n"); /*payment success: false*/
     }
-    printf("%s: balance is %.2f\n", FrankCard_getCardName(cardKalle), FrankCard_getBalance(cardKalle)); /*Kalle's card: balance is 2.00*/
-    CashRegister_loadMoneyToCard(unicafeExactum, cardKalle, 200.0);
-    printf("%s: balance is %.2f\n", FrankCard_getCardName(cardKalle), FrankCard_getBalance(cardKalle)); /*Kalle's card: balance is 150.00*/
-    CashRegister_payEconomicalFromCard(unicafeExactum, cardKalle);
-    printf("%s: balance is %.2f\n", FrankCard_getCardName(cardKalle), FrankCard_getBalance(cardKalle)); /*Kalle's card: balance is 147.40*/
-    printf("%s: balance is %.2f\n", CashRegister_getName(unicafeExactum), CashRegister_getCashInRegister(unicafeExactum)); /*Unicafe Exactum: balance is 1202.00*/
-    FrankCard_free(cardKalle);
-    CashRegister_free(unicafeExactum);
+    printf("%s: balance is %.2f\n", getCardName_FrankCard(cardKalle), getBalance_FrankCard(cardKalle)); /*Kalle's card: balance is 2.00*/
+    loadMoneyToCard_CashRegister(unicafeExactum, cardKalle, 200.0);
+    printf("%s: balance is %.2f\n", getCardName_FrankCard(cardKalle), getBalance_FrankCard(cardKalle)); /*Kalle's card: balance is 150.00*/
+    payEconomicalFromCard_CashRegister(unicafeExactum, cardKalle);
+    printf("%s: balance is %.2f\n", getCardName_FrankCard(cardKalle), getBalance_FrankCard(cardKalle)); /*Kalle's card: balance is 147.40*/
+    printf("%s: balance is %.2f\n", getName_CashRegister(unicafeExactum), getCashInRegister_CashRegister(unicafeExactum)); /*Unicafe Exactum: balance is 1202.00*/
+    free_FrankCard(cardKalle);
+    free_CashRegister(unicafeExactum);
     return 0;
 }

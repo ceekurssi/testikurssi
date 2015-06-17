@@ -10,7 +10,7 @@ struct CashRegister {
     int gourmetSold;
 };
 
-CashRegister* CashRegister_new(char* name){
+CashRegister* new_CashRegister(char* name){
     CashRegister* cashRegister;
     
     cashRegister = malloc(sizeof(CashRegister));
@@ -26,45 +26,45 @@ CashRegister* CashRegister_new(char* name){
     return cashRegister;
 }
 
-char* CashRegister_getCashRegisterName(CashRegister* cashRegister){
+char* getCashRegisterName_CashRegister(CashRegister* cashRegister){
     return cashRegister->name;
 }
 
-Money CashRegister_getCashInRegister(CashRegister* cashRegister){
+Money getCashInRegister_CashRegister(CashRegister* cashRegister){
     return cashRegister->cashInRegister;
 }
 
-int CashRegister_getEconomicalSold(CashRegister* cashRegister){
+int getEconomicalSold_CashRegister(CashRegister* cashRegister){
     return cashRegister->economicalSold;
 }
 
-int CashRegister_getGourmetSold(CashRegister* cashRegister){
+int getGourmetSold_CashRegister(CashRegister* cashRegister){
     return cashRegister->gourmetSold;
 }
 
-Money CashRegister_payEconomical(CashRegister* cashRegister, Money cashGiven){
-    if (money_comp(cashGiven, PRICE_ECONOMICAL) != -1){
-        cashRegister->cashInRegister = money_add(cashRegister->cashInRegister, PRICE_ECONOMICAL);
+Money payEconomical_CashRegister(CashRegister* cashRegister, Money cashGiven){
+    if (comp_money(cashGiven, PRICE_ECONOMICAL) != -1){
+        cashRegister->cashInRegister = add_money(cashRegister->cashInRegister, PRICE_ECONOMICAL);
         cashRegister->economicalSold += 1;
-        return money_sub(cashGiven, PRICE_ECONOMICAL);
+        return sub_money(cashGiven, PRICE_ECONOMICAL);
     } else {
         return cashGiven;
     }
 }
 
-Money CashRegister_payGourmet(CashRegister* cashRegister, Money cashGiven){
-    if (money_comp(cashGiven, PRICE_GOURMET) != -1){
-        cashRegister->cashInRegister = money_add(cashRegister->cashInRegister, PRICE_GOURMET);
+Money payGourmet_CashRegister(CashRegister* cashRegister, Money cashGiven){
+    if (comp_money(cashGiven, PRICE_GOURMET) != -1){
+        cashRegister->cashInRegister = add_money(cashRegister->cashInRegister, PRICE_GOURMET);
         cashRegister->gourmetSold += 1;
-        return money_sub(cashGiven, PRICE_GOURMET);
+        return sub_money(cashGiven, PRICE_GOURMET);
     } else {
         return cashGiven;
     }
 }
 
-int CashRegister_payEconomicalFromCard(CashRegister* cashRegister, FrankCard* card){
-    if (money_comp(FrankCard_getBalance(card), PRICE_ECONOMICAL) != -1){
-        FrankCard_pay(card, PRICE_ECONOMICAL);
+int payEconomicalFromCard_CashRegister(CashRegister* cashRegister, FrankCard* card){
+    if (comp_money(getBalance_FrankCard(card), PRICE_ECONOMICAL) != -1){
+        pay_FrankCard(card, PRICE_ECONOMICAL);
         cashRegister->economicalSold += 1;
         return 1;
     } else {
@@ -72,9 +72,9 @@ int CashRegister_payEconomicalFromCard(CashRegister* cashRegister, FrankCard* ca
     }
 }
 
-int CashRegister_payGourmetFromCard(CashRegister* cashRegister, FrankCard* card){
-    if (money_comp(FrankCard_getBalance(card), PRICE_GOURMET) != -1){
-        FrankCard_pay(card, PRICE_GOURMET);
+int payGourmetFromCard_CashRegister(CashRegister* cashRegister, FrankCard* card){
+    if (comp_money(getBalance_FrankCard(card), PRICE_GOURMET) != -1){
+        pay_FrankCard(card, PRICE_GOURMET);
         cashRegister->gourmetSold += 1;
         return 1;
     } else {
@@ -82,12 +82,12 @@ int CashRegister_payGourmetFromCard(CashRegister* cashRegister, FrankCard* card)
     }
 }
 
-void CashRegister_loadMoneyToCard(CashRegister* cashRegister, FrankCard* card, Money amount){
-    FrankCard_loadMoney(card, amount);
-    cashRegister->cashInRegister = money_add(cashRegister->cashInRegister, amount);
+void loadMoneyToCard_CashRegister(CashRegister* cashRegister, FrankCard* card, Money amount){
+    loadMoney_FrankCard(card, amount);
+    cashRegister->cashInRegister = add_money(cashRegister->cashInRegister, amount);
 }
 
-void CashRegister_free(CashRegister* cashRegister){
+void free_CashRegister(CashRegister* cashRegister){
     free(cashRegister);
     return;
 }

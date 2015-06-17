@@ -14,7 +14,7 @@
  * Function Person_isAdult should return 1 if person is an adult and 0 if not.
  * Function Person_free should free all allocated memory. */
 
-int main()
+int main(void)
 {
     Person* kalle = Person_new("Kalle", 20);
     Person_becomeOlder(kalle);

@@ -6,6 +6,6 @@ struct boundedCounter {
     int upperLimit;
 };
 
-struct boundedCounter boundedCounter_next(struct boundedCounter counter);
+struct boundedCounter next_boundedCounter(struct boundedCounter counter);
 
 #endif	/* BOUNDEDCOUNTER_H */

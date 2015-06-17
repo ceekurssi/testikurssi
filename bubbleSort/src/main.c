@@ -4,7 +4,7 @@
 
 //kesken, testit puuttuu. Mikä tässä on se tehtävä, ei ainakaan bubble sort. Tätä pitää muokata/poistaa kokonaan
 
-int main(){
+int main(void){
     int numbers[] = {27, 11, 3, -56, 92, 41, 9};
     int count = sizeof(numbers)/ sizeof(numbers[0]);
     

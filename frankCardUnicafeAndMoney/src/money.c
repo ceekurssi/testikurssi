@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "money.h"
 
-Money money_add(Money first, Money second){
+Money add_money(Money first, Money second){
     first.euros += second.euros;
     
     if (first.cents + second.cents >= 100){
@@ -14,8 +14,8 @@ Money money_add(Money first, Money second){
     return first;
 }
 
-Money money_sub(Money first, Money second){
-    if (money_comp(first, second) < 0) {
+Money sub_money(Money first, Money second){
+    if (comp_money(first, second) < 0) {
         return first;
     }
     
@@ -31,7 +31,7 @@ Money money_sub(Money first, Money second){
     return first;
 }
 
-int money_comp(Money first, Money second){
+int comp_money(Money first, Money second){
     if (first.euros != second.euros){
         if (first.euros > second.euros){
             return 1;

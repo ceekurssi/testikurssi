@@ -6,9 +6,9 @@ typedef struct Money{
     int cents;
 } Money;
 
-Money money_add(Money first, Money second);
-Money money_sub(Money first, Money second);
-int money_comp(Money first, Money second);
+Money add_money(Money first, Money second);
+Money sub_money(Money first, Money second);
+int comp_money(Money first, Money second);
 
 #endif	/* MONEY_H */
 
