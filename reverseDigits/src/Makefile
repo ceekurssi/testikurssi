@@ -1,5 +1,4 @@
-#SRC_FILES=main.c source.c
-SRC_FILES=$(wildcard *.c)
+SRC_FILES=main.c source.c
 
 all: main
 
