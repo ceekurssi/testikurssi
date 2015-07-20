@@ -1,3 +1,4 @@
+/*BEGIN SOLUTION*/
 #include <stdlib.h>
 #include "cashRegister.h"
 
@@ -89,3 +90,4 @@ void free_CashRegister(CashRegister* cashRegister){
     free(cashRegister);
     return;
 }
+/*END SOLUTION*/
