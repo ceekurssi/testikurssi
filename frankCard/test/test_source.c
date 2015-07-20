@@ -8,8 +8,7 @@
 #include "../src/frankCard.h"
 
 
-START_TEST(test_frank_card)
-{
+START_TEST(test_frank_card) {
     FrankCard* cardPekka;
     
     cardPekka = new_FrankCard("cardPekka");

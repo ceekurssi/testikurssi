@@ -7,6 +7,7 @@
  * Define a structure called frankCard in frankCard.c. frankCard contains two members, pointer to string name and double balance. 
  * Implement all functions in frankCard.c. 
  * FrankCard_new allocate memory for a new frankCard and set its name to point to a given name. Balance is set to 0.0.
+ * FrankCard_new should return a pointer to the allocated FrankCard.
  * FrankCard_getName should return the name of the card and FrankCard_getBalance should return the balance of the card.
  * Function FrankCard_payEconomical should decrease the balance by 2.60 euros and function FrankCard_payGourmet should decrease the balance by 4.40 euros.
  * If there isn't enought money, the balance of the card doesn't change.
@@ -14,8 +15,7 @@
  * If the balance of the card is more than 150 euros, the balance is set to 150 euros.
  * Function FrankCard_free should free all allocated memory. */
 
-int main(void)
-{
+int main(void) {
     FrankCard* cardKalle = new_FrankCard("Kalle's card");
     FrankCard* cardVille = new_FrankCard("Ville's card");
     loadMoney_FrankCard(cardKalle, 20.0);
