@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "source.h"
 
-//kesken, testit puuttuu. Mikä tässä on se tehtävä, ei ainakaan bubble sort. Tätä pitää muokata/poistaa kokonaan
+//KESKEN, Tehtävänato keksittävä, function pointers?, testiä muokattava keksityn tehtävänannon mukaan
 
 int main(void){
     int numbers[] = {27, 11, 3, -56, 92, 41, 9};
