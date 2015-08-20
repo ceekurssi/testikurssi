@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://check.sourceforge.net/xml/check_unittest.xslt"?>
+<testsuites xmlns="http://check.sourceforge.net/ns">
+  <datetime>2015-08-18 12:22:22</datetime>
+  <suite>
+    <title>Test-demo</title>
+    <test result="success">
+      <path>.</path>
+      <fn>test_source.c:14</fn>
+      <id>test_new</id>
+      <iteration>0</iteration>
+      <duration>0.008025</duration>
+      <description>test_new</description>
+      <message>Passed</message>
+    </test>
+    <test result="success">
+      <path>.</path>
+      <fn>test_source.c:42</fn>
+      <id>test_compare</id>
+      <iteration>0</iteration>
+      <duration>0.008511</duration>
+      <description>test_compare</description>
+      <message>Passed</message>
+    </test>
+    <test result="success">
+      <path>.</path>
+      <fn>test_source.c:51</fn>
+      <id>test_reduce</id>
+      <iteration>0</iteration>
+      <duration>0.010042</duration>
+      <description>test_reduce</description>
+      <message>Passed</message>
+    </test>
+    <test result="success">
+      <path>.</path>
+      <fn>test_source.c:84</fn>
+      <id>test_add</id>
+      <iteration>0</iteration>
+      <duration>0.017314</duration>
+      <description>test_add</description>
+      <message>Passed</message>
+    </test>
+    <test result="success">
+      <path>.</path>
+      <fn>test_source.c:133</fn>
+      <id>test_subtract</id>
+      <iteration>0</iteration>
+      <duration>0.016480</duration>
+      <description>test_subtract</description>
+      <message>Passed</message>
+    </test>
+    <test result="success">
+      <path>.</path>
+      <fn>test_source.c:182</fn>
+      <id>test_multiply</id>
+      <iteration>0</iteration>
+      <duration>0.013968</duration>
+      <description>test_multiply</description>
+      <message>Passed</message>
+    </test>
+    <test result="success">
+      <path>.</path>
+      <fn>test_source.c:231</fn>
+      <id>test_divide</id>
+      <iteration>0</iteration>
+      <duration>0.014177</duration>
+      <description>test_divide</description>
+      <message>Passed</message>
+    </test>
+  </suite>
+  <duration>0.949880</duration>
+</testsuites>

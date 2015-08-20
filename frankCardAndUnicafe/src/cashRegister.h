@@ -14,7 +14,7 @@ double payGourmet_CashRegister(CashRegister* cashRegister, double cashGiven);
 int payEconomicalFromCard_CashRegister(CashRegister* cashRegister, FrankCard* card);
 int payGourmetFromCard_CashRegister(CashRegister* cashRegister, FrankCard* card);
 void loadMoneyToCard_CashRegister(CashRegister* cashRegister, FrankCard* card, double amount);
-void free_CashRegister(CashRegister* cashRegister);
+int free_CashRegister(CashRegister* cashRegister);
 
 
 #endif	/* CASHREGISTER_H */

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "source.h"
 
-/* Write a function binary_to_decimal, that gets an integer containing only 0s and 1s and return its decimal equivalent.
+/* Write a function int binary_to_decimal(int), that gets an integer containing only 0s and 1s and return its decimal equivalent.
  * */
 
 int main(void) {

@@ -6,9 +6,11 @@
 /* Good to know: structures, own headers, allocating and releasing memory, pointers 
  * This exercise is from Object-oriented programming with Java, week 6.
  * Copy frankCard.c and cashRegister.c from previous exercise. 
+ * Implement following functions in money.c.
  * Function money_add should add the second money to the first and then return the first money. 
  * Function money_sub should subtract the second money from the first and then return the first money.
  * Function money_comp should return 1 if the first given money is more than the second, -1 if the first money is less and 0 if they are same.
+ * Modify frankCard and cashRegister so that they use Money.
  * k*/
 
 int main(void) {

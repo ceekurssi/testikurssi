@@ -1,7 +1,7 @@
 #include "source.h"
 
 int* bubble_sort(int* numbers, int count, compare comp){
-    
+    /*BEGIN SOLUTION*/
     int changed = 1;
     while(changed){
         changed = 0;
@@ -15,6 +15,7 @@ int* bubble_sort(int* numbers, int count, compare comp){
         }
     }
     return numbers;
+    /*END SOLUTION*/
 }
 
 int sorted_compare(int first, int second){

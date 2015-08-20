@@ -1,6 +1,6 @@
 #include "source.h"
 
-/* Good to know: loops, formatted output
+/* Objective: loops, formatted output
  * Write a function multiply_matrix(int size) that prints a multiplication table from 1 to size. 
  * Use tab between columns and newline at the end of each line. 
  * For example, multiply_matrix(4) should print: 

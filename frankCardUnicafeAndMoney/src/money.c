@@ -2,6 +2,7 @@
 #include "money.h"
 
 Money add_money(Money first, Money second){
+    /*BEGIN SOLUTION*/
     first.euros += second.euros;
     
     if (first.cents + second.cents >= 100){
@@ -12,9 +13,11 @@ Money add_money(Money first, Money second){
     }
     
     return first;
+    /*END SOLUTION*/
 }
 
 Money sub_money(Money first, Money second){
+    /*BEGIN SOLUTION*/
     if (comp_money(first, second) < 0) {
         return first;
     }
@@ -29,9 +32,11 @@ Money sub_money(Money first, Money second){
     }
     
     return first;
+    /*END SOLUTION*/
 }
 
 int comp_money(Money first, Money second){
+    /*BEGIN SOLUTION*/
     if (first.euros != second.euros){
         if (first.euros > second.euros){
             return 1;
@@ -44,4 +49,5 @@ int comp_money(Money first, Money second){
         return -1;
     }
     return 0;
+    /*END SOLUTION*/
 }

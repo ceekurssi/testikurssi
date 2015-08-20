@@ -1,10 +1,7 @@
 #include <stdlib.h>
 #include "frankCard.h"
 
-struct FrankCard {
-    char* name;
-    double balance;
-};
+/*BEGIN SOLUTION*/
 
 FrankCard* new_FrankCard(char* name){
     FrankCard* card;
@@ -17,7 +14,7 @@ FrankCard* new_FrankCard(char* name){
     card->balance = 0.0;
     return card;
 }
-char* getCardName_FrankCard(FrankCard* card){
+char* getName_FrankCard(FrankCard* card){
     return card->name;
 }
 double getBalance_FrankCard(FrankCard* card){
@@ -33,16 +30,21 @@ void loadMoney_FrankCard(FrankCard* card, double amount){
     }
 }
 
-int pay_FrankCard(FrankCard* card, double amount){
-    if (card->balance < amount){
-        return 0;
-    } else {
-        card->balance -= amount;
-        return 1;
+void payEconomical_FrankCard(FrankCard* card){
+    if (card->balance >= 2.60){
+        card->balance -= 2.60;
     }
 }
 
-void free_FrankCard(FrankCard* card){
-    free(card);
-    return;
+void payGourmet_FrankCard(FrankCard* card){
+    if (card->balance >= 4.40){
+        card->balance -= 4.40;
+    }
 }
+
+int free_FrankCard(FrankCard* card){
+    free(card);
+    return 1;
+}
+
+/*END SOLUTION*/
