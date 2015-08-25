@@ -1,6 +1,6 @@
 CHECK_CFLAGS=$(shell pkg-config --cflags check)
 CHECK_LDFLAGS=$(shell pkg-config --libs check)
-SRC_FILES=test_source.c tmc-check.c ../src/source.c
+SRC_FILES=test_source.c tmc-check.c ../src/source.c checkhelp.c
 
 all: test
 
@@ -13,6 +13,6 @@ clean:
 run: test
 	# Printing available points
 	./test --print-available-points
-	./test these are command line arguments
+	./test command line arguments
 get-points:
 	./test --print-available-points
