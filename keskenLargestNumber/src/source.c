@@ -3,6 +3,7 @@
 #include "source.h"
 
 int maximum_integer(void) {
+    /*BEGIN SOLUTION*/
     int i;
     int maximum = 0;
     
@@ -16,4 +17,5 @@ int maximum_integer(void) {
     }
         
     return maximum;
+    /*END SOLUTION*/
 }

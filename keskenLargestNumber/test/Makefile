@@ -1,6 +1,6 @@
 CHECK_CFLAGS=$(shell pkg-config --cflags check)
 CHECK_LDFLAGS=$(shell pkg-config --libs check)
-SRC_FILES=test_source.c tmc-check.c ../src/source.c
+SRC_FILES=test_source.c tmc-check.c ../src/source.c checkhelp.c
 
 all: test
 
