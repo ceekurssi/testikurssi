@@ -10,4 +10,4 @@ clean:
 
 run: main
 	# Running our main function from file main.c
-	./main
+	./main first second third
