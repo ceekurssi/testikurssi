@@ -5,8 +5,14 @@ void count_sum(void) {
     
     /*BEGIN SOLUTION*/
     int a, b, sum;
-    scanf("%d", &a);
-    scanf("%d", &b);
+    if (scanf("%d", &a) != 1){
+        fprintf(stderr, "error\n");
+        return;
+    }
+    if (scanf("%d", &b) != 1){
+        fprintf(stderr, "error\n");
+        return;
+    }
     
     sum = a + b;
     

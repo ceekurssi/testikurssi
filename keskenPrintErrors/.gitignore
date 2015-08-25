@@ -3,6 +3,7 @@
 /nbproject/private
 mockinput
 mockoutput
+erroroutput
 tmc_available_points.txt
 tmc_test_results.xml
 *~

@@ -27,19 +27,30 @@ START_TEST(test_count_sum) {
      fclose(fp);
      
      mock_input = freopen("mockinput", "w+", stdin);
-     fputs("10200 20031", mock_input);
+     fputs("10200 a", mock_input);
      fseek(mock_input, 0, SEEK_SET);
      freopen("mockoutput", "w", stdout);
+     freopen("erroroutput", "w", stderr);
      count_sum();
      fflush(stdout);
+     fflush(stderr);
      fp = fopen("mockoutput", "r");
+     FILE* fperror = fopen("erroroutput", "r");
+     char strerror [100];
      memset(str, 0, sizeof(str));
+     memset(strerror, 0, sizeof(strerror));
      fgets(str, 100, fp);
-     ref = "10200 + 20031 = 30231\n";
+     fgets(strerror, 100, fperror);
+     ref = "";
+     char* referror = "error\n";
      infostr[0] = 0;
+     char infoerror[100] = "";
      ret = mycompare(str, ref, infostr);
-     fail_unless(!ret, "When giving input \"10200 20031\", your output:\n%s\nReference output:\n%s\nReason: %s\n",
+     fail_unless(!ret, "When giving input \"10200 a\", your output:\n%s\nReference output:\n%s\nReason: %s\n",
             str, ref, infostr);
+     int reterror = mycompare(strerror, referror, infoerror);
+     fail_unless(!reterror, "When giving input \"10200 a\", your error output:\n%s\nReference error output:\n%s\nReason: %s\n",
+            strerror, referror, infoerror);
      fclose(fp);
 }
 END_TEST
