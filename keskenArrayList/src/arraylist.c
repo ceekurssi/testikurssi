@@ -36,18 +36,18 @@ void* ArrayList_get(ArrayList* self, int i) {
 }
 
 void ArrayList_remove(ArrayList* self, int i) {
-/*
+
     self->array[i] = NULL;
     while (i+1 < self->end) {
         self->array[i] = self->array[i+1];
         i++;
     }
-*/
-    self->array[i] = NULL;
-    int numMoved = self->end - i - 1;
-    if (numMoved > 0){
-        memmove(&i, &i+1, numMoved);
-    }
+
+//    self->array[i] = NULL;
+//    int numMoved = self->end - i - 1;
+//    if (numMoved > 0){
+//        memmove(&i, &i+1, numMoved);
+//    }
     self->end--;
 }
 int ArrayList_size(ArrayList* self) {
@@ -56,5 +56,8 @@ int ArrayList_size(ArrayList* self) {
 
 void expand(ArrayList* self) {
     self->max *= 2;
-    self->array = realloc(self->array, self->max * sizeof(void *));
+    void** newArray = realloc(self->array, self->max * sizeof(void *));
+    int a = 1;
+    assert(a == 1);
+    self->array = newArray;
 }
