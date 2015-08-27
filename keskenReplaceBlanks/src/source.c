@@ -1,6 +1,8 @@
 #include "source.h"
+#include <stdio.h>
 
 int replace_blanks() {
+    /*BEGIN SOLUTION*/
     FILE* inOutFile;
     FILE* tempFile;
     int c;
@@ -33,4 +35,6 @@ int replace_blanks() {
     }
     
     return 0;
+    /*END SOLUTION*/
+    /*STUB: return -1;*/
 }

@@ -5,6 +5,7 @@
 #include <string.h>
 #include <time.h>
 #include <math.h>
+#include <limits.h>
 #include "../src/source.h"
 
 void print_array(char *buf, int *arr, int n) {
@@ -17,21 +18,20 @@ void print_array(char *buf, int *arr, int n) {
     strcat(buf, "}");
 }
 
-START_TEST(test_largest_num) {
+START_TEST(test_smallest_num) {
     int arr[8];
     for (int i = 0; i < 3; i++) {
-        int len = rand() % 6 + 1;
-        int mod = 0;
+        int len = 7;
+        int mod = INT_MAX;
         for (int j = 0; j < len; j++) {
             arr[j] = rand() % 100;
-            if (arr[j] > mod)
+            if (arr[j] < mod)
                 mod = arr[j];
         }
-        arr[len] = -1;
-        int stu = largest_number(arr);
+        int stu = smallest_number(arr, len);
         char outbuf[100] = { 0 };
         print_array(outbuf, arr, len + 1);
-        fail_unless(stu == mod, "largest_number() called with array %s. You returned: %d. Should have been: %d.",
+        fail_unless(stu == mod, "smallest_number() called with array %s. You returned: %d. Should have been: %d.",
                 outbuf, stu, mod);
     }
 }
@@ -41,6 +41,6 @@ int main(int argc, const char *argv[])
 {
     srand((unsigned)time(NULL));
 	Suite *s = suite_create("Test-demo");
-	tmc_register_test(s, test_largest_num, "1");
+	tmc_register_test(s, test_smallest_num, "1");
 	return tmc_run_tests(argc, argv, s);
 }

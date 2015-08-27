@@ -8,9 +8,10 @@
 #include "../src/source.h"
 
 
-START_TEST(test_sum)
+START_TEST(test_prime)
 {
-    fail_unless(my_sum_function(1, 2) == 3, "My own sum function should sum 1 and 2 resulting in 3");
+    fail_unless(is_prime(5) == 1, "is_prime(5) should return 1, because 5 is a prime number");
+    fail_unless(is_prime(4) == 0, "is_prime(4) should return 0, because 4 is not a prime number");
 }
 END_TEST
 
@@ -18,6 +19,6 @@ int main(int argc, const char *argv[])
 {
     srand((unsigned)time(NULL));
 	Suite *s = suite_create("Test-demo");
-	tmc_register_test(s, test_sum, "1");
+	tmc_register_test(s, test_prime, "1");
 	return tmc_run_tests(argc, argv, s);
 }

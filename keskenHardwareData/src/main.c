@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "hardware.h"
 
-/*(Hardware Inventory) You’re the owner of a hardware store and need to keep an inventory that can tell you what tools you have,
+/* (Hardware Inventory) You’re the owner of a hardware store and need to keep an inventory that can tell you what tools you have,
  *  how many you have and the cost of each one.
  *  Write a program that initializes the file "hardware.dat" to 100 empty records, 
  * lets you input the data concerning each tool, enables you to list all your tools, 

@@ -2,18 +2,22 @@
 #include <stdlib.h>
 #include "source.h"
 
-/* Binary tree */
+/* See source.h header for  */
 
 int main() {
     
-    Node* tree = malloc(sizeof(Node));
-
-    insert(tree, 3);
-    insert(tree, 2);
-    insert(tree, 8);
-    insert(tree, 1);
-    insert(tree, 5);
-    printTree(tree);
+    Node* tree = NULL;
+    tree = insert(tree, 3);
+    tree = insert(tree, 2);
+    tree = insert(tree, 8);
+    tree = insert(tree, 1);
+    tree = insert(tree, 5);
+    inorder(tree);
+    printf("\n");
+    preorder(tree);
+    printf("\n");
+    postorder(tree);
+    printf("\n");
     
     return 0;
 }

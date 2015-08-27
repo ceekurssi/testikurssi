@@ -1,41 +1,52 @@
+/*BEGIN SOLUTION*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "source.h"
 
-void printTree(Node* node){
-    if (node != NULL){
-        printf("\n%d ", node->value);
+Node* insert(Node* node, int value) {
+    if (!node) {
+        node = malloc(sizeof(Node));
+        node->value = value;
+        node->leftChild = NULL;
+        node->rightChild = NULL;
+        return node;
     }
-    if (node->leftChild != NULL){
-        printf("L%d ", node->leftChild->value);
+    if (value < node->value) {
+        node->leftChild = insert(node->leftChild, value);
+    } else {
+        node->rightChild = insert(node->rightChild, value);
     }
-    if (node->rightChild != NULL){
-        printf("R%d ", node->rightChild->value);
-    }
-    if (node->leftChild != NULL){
-        printTree(node->leftChild);
-    }
-    if (node->rightChild != NULL){
-        printTree(node->rightChild);
-    }
+    return node;
 }
 
-void insert(Node* node, int value){
-    if (node->value == NULL){
-        node->value = value;
-    } else if (value < node->value){
-        if (node->leftChild != NULL){
-            insert(node->leftChild, value);
-        } else {
-            node->leftChild = malloc(sizeof(Node));
-            node->leftChild->value = value;
-        }
-    } else {
-        if (node->rightChild != NULL){
-            insert(node->rightChild, value);
-        } else {
-            node->rightChild = malloc(sizeof(Node));
-            node->rightChild->value = value;
-        }
+Node* delet(Node* node, int value){
+    
+}
+
+/*END SOLUTION*/
+
+void inorder(Node* node){
+    if (node != NULL){
+        inorder(node->leftChild);
+        printf(" %d", node->value);
+        inorder(node->rightChild);
+    }
+    return;
+}
+
+void postorder(Node* node){
+    if (node != NULL){
+        postorder(node->leftChild);
+        postorder(node->rightChild);
+        printf(" %d", node->value);
+    }
+    return;
+}
+
+void preorder(Node* node){
+    if (node != NULL){
+        printf(" %d", node->value);
+        preorder(node->leftChild);
+        preorder(node->rightChild);
     }
 }
