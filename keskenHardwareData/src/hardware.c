@@ -15,12 +15,12 @@ void textFile(FILE* file) {
         printf("File could not be opened");
     } else {
         rewind(file);
-        fprintf(write, "%s%s%s%s", "id", "Tool name", "Quantity", "Cost");
+        fprintf(write, "%s %s %s %s\n", "id", "Tool name", "Quantity", "Cost");
 
         while (!feof(file)) {
             fread(&data, sizeof (HardwareData), 1, file);
             if (data.idNumber != 0) {
-                fprintf(write, "%d%s%d%f", data.idNumber, data.toolName, data.quantity, data.cost);
+                fprintf(write, "%d %s %d %f\n", data.idNumber, data.toolName, data.quantity, data.cost);
             }
         }
         fclose(write);
@@ -42,14 +42,14 @@ void updateRecord(FILE* file) {
     if (data.idNumber == 0) {
         printf("No data found\n");
     } else {
-        printf("%d%s%d%f\n", data.idNumber, data.toolName, data.quantity, data.cost);
+        printf("%d %s %d %f\n", data.idNumber, data.toolName, data.quantity, data.cost);
         printf("Enter new quantity: ");
         scanf("%d", &quantity);
         data.quantity = quantity;
         printf("\nEnter new price: ");
         scanf("%lf", &cost);
         data.cost = cost;
-        printf("%d%s%d%f\n", data.idNumber, data.toolName, data.quantity, data.cost);
+        printf("%d %s %d %f\n", data.idNumber, data.toolName, data.quantity, data.cost);
         fseek(file, (id - 1) * sizeof (HardwareData), SEEK_SET);
         fwrite(&data, sizeof (HardwareData), 1, file);
     }
@@ -70,7 +70,7 @@ void newRecord(FILE* file) {
         printf("Id already contains information.\n");
     } else {
         printf("Enter new name, quantity and price: ");
-        scanf("%s%d%lf", &data.toolName, &data.quantity, &data.cost);
+        scanf("%s%d%lf", (char*)&data.toolName, &data.quantity, &data.cost);
         data.idNumber = id;
         fseek(file, (id - 1) * sizeof (HardwareData), SEEK_SET);
         fwrite(&data, sizeof (HardwareData), 1, file);
@@ -95,6 +95,4 @@ void deleteRecord(FILE* file) {
         fseek(file, (id - 1) * sizeof (HardwareData), SEEK_SET);
         fwrite(&blankData, sizeof (HardwareData), 1, file);
     }
-    
-
 }

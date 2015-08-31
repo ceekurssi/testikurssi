@@ -15,7 +15,7 @@ int main(void) {
     int choice;
     
     if ((file = fopen("hardware.dat", "rb+")) == NULL){
-        printf("File could not be opened.\n");
+        printf("File could not be openedjshf.\n");
     } else {
         while ((choice = enterChoice()) != 5){
             switch (choice) {
